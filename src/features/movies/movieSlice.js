@@ -1,13 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-	movies: [],
+	movies: {},
 };
 
 const movieSlice = createSlice({
 	name: 'movies',
 	initialState,
-	reducer: {
+	reducers: {
 		addMovies: (state, { payload }) => {
 			state.movies = payload;
 		},
