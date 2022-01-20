@@ -2,10 +2,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { getAllMovies } from '../../features/movies/movieSlice';
 import MovieCard from '../movieCard/MovieCard';
+import './MovieListing.scss'
 
 const MovieListing = () => {
 	const movies = useSelector(getAllMovies);
-	console.log(movies.Search);
 	let renderMovies = '';
 
 	renderMovies =
