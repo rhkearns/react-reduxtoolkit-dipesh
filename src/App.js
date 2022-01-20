@@ -3,8 +3,8 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './components/home/Home';
 import Header from './components/header/Header';
 import Footer from './components/footer/Footer';
-import MovieDetail from './components/movieDetails/MovieDetail'
-import PageNotFound from './components/pageNotFound/PageNotFound'
+import MovieDetail from './components/movieDetails/MovieDetail';
+import PageNotFound from './components/pageNotFound/PageNotFound';
 import './App.scss';
 
 function App() {
@@ -12,11 +12,13 @@ function App() {
 		<div className="app">
 			<BrowserRouter>
 				<Header></Header>
-				<Routes>
-					<Route path="/" exact element={<Home />} />
-					<Route path="/movie/:imdbID" element={<MovieDetail />} />
-					<Route path='*' element={<PageNotFound />} />
-				</Routes>
+				<div className="container">
+					<Routes>
+						<Route path="/" exact element={<Home />} />
+						<Route path="/movie/:imdbID" element={<MovieDetail />} />
+						<Route path="*" element={<PageNotFound />} />
+					</Routes>
+				</div>
 				<Footer />
 			</BrowserRouter>
 		</div>
