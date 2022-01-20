@@ -3,7 +3,7 @@ import React from 'react';
 const MovieDetail = () => {
   return (
     <div>
-      MovieDetails
+      Movie Details
     </div>
   );
 };
