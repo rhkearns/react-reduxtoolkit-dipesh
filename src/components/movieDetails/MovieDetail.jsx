@@ -4,9 +4,10 @@ import { useDispatch } from 'react-redux';
 import {
 	fetchAsyncMovieOrShowDetail,
 	getSelectedMovieOrShow,
+	removeSelectedMovieOrShow,
 } from '../../features/movies/movieSlice';
 import { useSelector } from 'react-redux';
-import './MovieDetail.scss'
+import './MovieDetail.scss';
 
 const MovieDetail = () => {
 	const { imdbID } = useParams();
@@ -16,6 +17,9 @@ const MovieDetail = () => {
 
 	useEffect(() => {
 		dispatch(fetchAsyncMovieOrShowDetail(imdbID));
+		return () => {
+			dispatch(removeSelectedMovieOrShow());
+		};
 	}, [dispatch, imdbID]);
 
 	return (
@@ -60,9 +64,9 @@ const MovieDetail = () => {
 					</div>
 				</div>
 			</div>
-      <div className="section-right">
-        <img src={data.Poster} alt={data.Title} />
-      </div>
+			<div className="section-right">
+				<img src={data.Poster} alt={data.Title} />
+			</div>
 		</div>
 	);
 };
