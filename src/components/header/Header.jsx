@@ -1,13 +1,21 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import user from '../../images/user.png';
 import './Header.scss';
+import {
+	fetchAsyncMovies,
+	fetchAsyncShows,
+} from '../../features/movies/movieSlice';
 
 const Header = () => {
 	const [term, setTerm] = useState('');
+	const dispatch = useDispatch();
 	const submitHandler = e => {
 		e.preventDefault();
-		console.log(term);
+		dispatch(fetchAsyncMovies(term));
+		dispatch(fetchAsyncShows(term));
+    setTerm('')
 	};
 
 	return (
